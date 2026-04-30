@@ -7,7 +7,7 @@ interface Task {
   completed: boolean;
 }
 
-const API = 'http://localhost:5000/api';
+const API = '\'https://task-manager-backend-hbzo.onrender.com/api';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
