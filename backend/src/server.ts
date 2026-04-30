@@ -8,12 +8,17 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
+// const pool = new Pool({
+//   user: 'admin',
+//   password: 'mysecretpassword',
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'tasksdb',
+// });
+
 const pool = new Pool({
-  user: 'admin',
-  password: 'mysecretpassword',
-  host: 'localhost',
-  port: 5432,
-  database: 'tasksdb',
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
 });
 
 const initDb = async () => {
